@@ -1,4 +1,4 @@
-import GET_WORKSHOPS from '../actions/types';
+import { GET_WORKSHOPS } from '../actions/types';
 
 const workshopsReducer = (state = [], action) => {
   let newState = [...state];

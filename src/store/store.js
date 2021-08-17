@@ -1,11 +1,17 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+} from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/index';
 
 const initialState = {
   workshops: [],
-  username: '',
-  loggedIn: false,
+  authorization: {
+    username: JSON.parse(localStorage.getItem('username')),
+    token: JSON.parse(localStorage.getItem('token')),
+  },
   attendances: [],
 };
 
