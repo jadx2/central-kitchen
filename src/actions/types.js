@@ -1,0 +1,3 @@
+const GET_WORKSHOPS = 'GET_WORKSHOPS';
+
+export default GET_WORKSHOPS;
