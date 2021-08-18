@@ -14,19 +14,36 @@
     font-family: 'Style Script', cursive;
     font-size: 3.5rem;
     width: 130px;
-    padding: 1rem 2rem 0 0;
+    padding-top: 2rem;
     text-align: center;
     line-height: 1;
+  }
+
+  .user {
+    text-align: center;
   }
 
   .nav-links {
     display: flex;
     flex-direction: column;
-    padding-bottom: 20rem;
+    padding-bottom: 15rem;
+
+    .user-control {
+      display: flex;
+      flex-direction: column;
+
+      .logout-btn {
+        border: none;
+        background-color: $white;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 4rem;
+      }
+    }
 
     .nav-link {
       font-weight: 700;
-      padding: 1rem 5rem 1rem 1rem;
+      padding: 1rem 3rem 1rem 1rem;
       letter-spacing: -1px;
 
       &.active {
@@ -37,7 +54,7 @@
   }
 
   .social-media {
-    padding: 0 1rem 1rem 0;
+    padding: 0 1rem 2rem 0;
     text-align: center;
     .social-media-link {
       margin: 0.5rem;

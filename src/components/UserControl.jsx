@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { logoutUser } from '../actions';
 
-const UserControl = () => {
+const UserControl = (props) => {
+  const { logged } = props;
   const dispatch = useDispatch();
-  const logged = useSelector(
-    (state) => state.authorization.token,
-  );
 
   const handelLogout = () => {
     dispatch(logoutUser());
@@ -15,21 +14,53 @@ const UserControl = () => {
   const renderByAuthorization = () => {
     if (logged) {
       return (
-        <button type="button" onClick={handelLogout}>
-          Logout
-        </button>
+        <div className="user-control">
+          <NavLink
+            className="nav-link"
+            activeClassName="nav-link active"
+            to="/dashboard"
+          >
+            DASHBOARD
+          </NavLink>
+          <button
+            type="button"
+            className="logout-btn"
+            onClick={handelLogout}
+          >
+            Logout
+          </button>
+        </div>
       );
     }
     return (
-      <>
-        <Link to="signup">Signup</Link>
-        <span>|</span>
-        <Link to="/login">Login</Link>
-      </>
+      <div className="user-control">
+        <NavLink
+          className="nav-link"
+          activeClassName="nav-link active"
+          to="signup"
+        >
+          SIGNUP
+        </NavLink>
+        <NavLink
+          className="nav-link"
+          activeClassName="nav-link active"
+          to="/login"
+        >
+          LOGIN
+        </NavLink>
+      </div>
     );
   };
 
   return <div>{renderByAuthorization()}</div>;
+};
+
+UserControl.propTypes = {
+  logged: PropTypes.string,
+};
+
+UserControl.defaultProps = {
+  logged: '',
 };
 
 export default UserControl;
