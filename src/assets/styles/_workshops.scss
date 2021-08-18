@@ -1,0 +1,25 @@
+@import 'variables';
+
+.workshops {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9rem;
+
+  .workshops-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: $dark-black;
+  }
+
+  .workshops-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: $grey;
+  }
+
+  .dots {
+    color: $soft-grey;
+  }
+}

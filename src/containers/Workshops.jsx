@@ -16,8 +16,12 @@ const Workshops = () => {
   });
 
   return (
-    <div>
-      <h1>Workshops</h1>
+    <div className="workshops">
+      <h1 className="workshops-title">Workshops</h1>
+      <p className="workshops-subtitle">
+        Click on the workshop for more detail
+      </p>
+      <p className="dots">...................</p>
       <Slider workshops={workshops} />
     </div>
   );

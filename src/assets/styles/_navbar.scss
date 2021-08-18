@@ -1,5 +1,50 @@
+@import 'variables';
+
 .menu {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
+  background-color: $white;
+  border-right: 2px solid $soft-grey;
+  padding: 1rem 0 1rem 1rem;
+  z-index: 999;
+
+  .logo {
+    font-family: 'Style Script', cursive;
+    font-size: 3.5rem;
+    width: 130px;
+    padding: 1rem 2rem 0 0;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20rem;
+
+    .nav-link {
+      font-weight: 700;
+      padding: 1rem 5rem 1rem 1rem;
+      letter-spacing: -1px;
+
+      &.active {
+        background-color: $green;
+        color: $white;
+      }
+    }
+  }
+
+  .social-media {
+    padding: 0 1rem 1rem 0;
+    text-align: center;
+    .social-media-link {
+      margin: 0.5rem;
+    }
+    .footer {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+    }
+  }
 }

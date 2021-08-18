@@ -1,4 +1,10 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCaretRight,
+  faCaretLeft,
+} from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Slider = (props) => {
@@ -25,34 +31,46 @@ const Slider = (props) => {
     <div className="slider">
       <button
         type="button"
-        className="left-arrow"
+        className=" arrow left-arrow"
         onClick={prevSlide}
       >
-        Prev
+        <FontAwesomeIcon icon={faCaretLeft} />
       </button>
       <button
         type="button"
-        className="right-arrow"
+        className="arrow right-arrow"
         onClick={nextSlide}
       >
-        Next
+        <FontAwesomeIcon icon={faCaretRight} />
       </button>
 
       {workshops.map((workshop, index) => (
-        <div
+        <Link
+          to="/workshops"
           className={
             index === current ? 'slide active' : 'slide'
           }
           key={workshop.title}
         >
           {index === current && (
-            <img
-              src={workshop.image}
-              alt={workshop.title}
-              className="image"
-            />
+            <>
+              <div className="info-holder">
+                <h3 className="slide-title">
+                  {workshop.title}
+                </h3>
+                <p className="slide-description">
+                  {workshop.description.substring(0, 300)}
+                  ...
+                </p>
+              </div>
+              <img
+                src={workshop.image}
+                alt={workshop.title}
+                className="image"
+              />
+            </>
           )}
-        </div>
+        </Link>
       ))}
     </div>
   );
@@ -61,15 +79,14 @@ const Slider = (props) => {
 Slider.propTypes = {
   workshops: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.integer,
       title: PropTypes.string,
       description: PropTypes.string,
-      menu: PropTypes.arrayOf(
-        PropTypes.shape({
-          dish1: PropTypes.string,
-          dish2: PropTypes.string,
-          dish3: PropTypes.string,
-        }),
-      ),
+      menu: PropTypes.shape({
+        dish1: PropTypes.string,
+        dish2: PropTypes.string,
+        dish3: PropTypes.string,
+      }),
       dates: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
