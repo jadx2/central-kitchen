@@ -1,5 +1,3 @@
-/* eslint-disable operator-linebreak */
-
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
@@ -11,7 +9,7 @@ const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] =
+  const [passwordConfirmation, setPasswordConfirmation] = // eslint-disable-line
     useState('');
 
   const handleChange = (e) => {
@@ -49,15 +47,16 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="form-container">
+      <h2 className="form-title">SIGNUP</h2>
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="username">
           Username:
           <input
             type="text"
             name="username"
             id="username"
+            placeholder="Enter your username..."
             required
             onChange={handleChange}
           />
@@ -68,6 +67,7 @@ const Signup = () => {
             type="email"
             name="email"
             id="email"
+            placeholder="Enter a valid email..."
             required
             onChange={handleChange}
           />
@@ -78,6 +78,7 @@ const Signup = () => {
             type="password"
             name="password"
             id="password"
+            placeholder="Enter a password..."
             required
             onChange={handleChange}
           />
@@ -88,14 +89,17 @@ const Signup = () => {
             type="password"
             name="password-confirmation"
             id="password-confirmation"
+            placeholder="Re enter your password..."
             required
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Signup</button>
+        <button type="submit">SIGNUP</button>
       </form>
-      <p>Have an account?</p>
-      <Link to="/login">Login Here</Link>
+      <div className="login-link">
+        <p>Have an account?</p>
+        <Link to="/login">Login Here</Link>
+      </div>
     </div>
   );
 };

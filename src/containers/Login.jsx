@@ -34,15 +34,16 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="form-container">
+      <h2 className="form-title">LOGIN</h2>
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="email">
           Email:
           <input
             type="email"
             name="email"
             id="email"
+            placeholder="Enter a valid email..."
             required
             onChange={handleChange}
           />
@@ -53,14 +54,17 @@ const Login = () => {
             type="password"
             name="password"
             id="password"
+            placeholder="Enter a password..."
             required
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Login</button>
+        <button type="submit">LOGIN</button>
       </form>
-      <p>Don&apos;t have an account?</p>
-      <Link to="/signup">Signup here</Link>
+      <div className="login-link">
+        <p>Don&apos;t have an account?</p>
+        <Link to="/signup">Signup here</Link>
+      </div>
     </div>
   );
 };
