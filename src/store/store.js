@@ -10,6 +10,8 @@ const initialState = {
     token: localStorage.getItem('token'),
   },
   details: {},
+  attendances: [],
+  error: null,
 };
 
 /* eslint-disable */

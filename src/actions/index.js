@@ -1,6 +1,4 @@
 /* eslint-disable object-curly-newline */
-/* eslint-disable operator-linebreak */
-/* eslint-disable camelcase */
 
 import axios from 'axios';
 import {
@@ -8,7 +6,8 @@ import {
   AUTH_USER,
   LOGOUT_USER,
   GET_DETAILS,
-  CREATE_ATTENDANCE,
+  GET_ATTENDANCES,
+  GET_ERROR,
 } from './types';
 
 const baseURL = 'http://localhost:3001';
@@ -21,7 +20,10 @@ const getWorkshops = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    console.log(err);
+    dispatch({
+      type: GET_ERROR,
+      payload: err,
+    });
   }
 };
 
@@ -33,7 +35,10 @@ const getDetails = (id) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    console.log(err);
+    dispatch({
+      type: GET_ERROR,
+      payload: err,
+    });
   }
 };
 
@@ -56,7 +61,10 @@ const signupUser = (user) => async (dispatch) => {
     localStorage.setItem('username', username);
     localStorage.setItem('token', res.data.token);
   } catch (err) {
-    console.log(err);
+    dispatch({
+      type: GET_ERROR,
+      payload: err,
+    });
   }
 };
 
@@ -76,7 +84,10 @@ const loginUser = (user) => async (dispatch) => {
     localStorage.setItem('username', username);
     localStorage.setItem('token', res.data.token);
   } catch (err) {
-    console.log(err);
+    dispatch({
+      type: GET_ERROR,
+      payload: err,
+    });
   }
 };
 
@@ -91,23 +102,38 @@ const logoutUser = () => {
 
 const createAttendance = (data) => async (dispatch) => {
   try {
-    const { attendee_id, attended_workshop_id, date, token } = data;
+    const { userId, id, date, token } = data;
     const headers = { Authorization: token };
-    const res = await axios.post(
+    await axios.post(
       `${baseURL}/attendances`,
       {
-        attendee_id,
-        attended_workshop_id,
+        attendee_id: userId,
+        attended_workshop_id: id,
         date,
       },
       { headers },
     );
-    console.log(res);
+  } catch (err) {
     dispatch({
-      type: CREATE_ATTENDANCE,
+      type: GET_ERROR,
+      payload: err,
+    });
+  }
+};
+
+const getAttendances = (token) => async (dispatch) => {
+  const headers = { Authorization: token };
+  try {
+    const res = await axios.get(`${baseURL}/attendances`, { headers });
+    dispatch({
+      type: GET_ATTENDANCES,
+      payload: res.data,
     });
   } catch (err) {
-    console.log(err);
+    dispatch({
+      type: GET_ERROR,
+      payload: err,
+    });
   }
 };
 
@@ -118,4 +144,5 @@ export {
   loginUser,
   logoutUser,
   createAttendance,
+  getAttendances,
 };

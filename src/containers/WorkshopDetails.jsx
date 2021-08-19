@@ -33,13 +33,13 @@ const WorkshopDetails = (props) => {
     if (token) {
       dispatch(
         createAttendance({
-          attendee_id: userId,
-          attended_workshop_id: id.toString(),
+          userId,
+          id,
           date,
           token,
         }),
       );
-      console.log(userId, id, date, token);
+      history.push('/dashboard');
     } else {
       history.push('/signup');
     }

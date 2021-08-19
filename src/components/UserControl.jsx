@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../actions';
@@ -6,9 +6,11 @@ import { logoutUser } from '../actions';
 const UserControl = (props) => {
   const { logged } = props;
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleLogout = () => {
     dispatch(logoutUser());
+    history.push('/workshops');
   };
 
   const renderByAuthorization = () => {

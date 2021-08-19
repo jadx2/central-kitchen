@@ -27,13 +27,6 @@ const Navbar = () => {
         >
           WORKSHOPS
         </NavLink>
-        <NavLink
-          to="/chefs"
-          className="nav-link"
-          activeClassName="nav-link active"
-        >
-          CHEFS
-        </NavLink>
         <UserControl logged={logged} />
       </div>
       <div className="social-media">

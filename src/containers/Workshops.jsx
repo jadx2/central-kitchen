@@ -11,10 +11,6 @@ const Workshops = () => {
     dispatch(getWorkshops());
   }, []);
 
-  useEffect(() => {
-    console.log(workshops);
-  });
-
   return (
     <div className="workshops">
       <h1 className="workshops-title">WORKSHOPS</h1>

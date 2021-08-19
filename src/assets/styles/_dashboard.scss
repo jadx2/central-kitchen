@@ -1,0 +1,40 @@
+@import 'variables';
+
+.attendance-container {
+  width: 100%;
+  padding: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .dashboard-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: $dark-black;
+  }
+
+  .dashboard-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: $grey;
+    font-weight: 400;
+  }
+
+  .dots {
+    color: $soft-grey;
+  }
+
+  .attendances {
+    padding: 3rem;
+
+    .attendance {
+      margin-bottom: 2rem;
+      text-align: center;
+
+      .attendance-title {
+        font-weight: 700;
+      }
+    }
+  }
+}
