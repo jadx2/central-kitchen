@@ -9,15 +9,11 @@ import { NavLink } from 'react-router-dom';
 import UserControl from './UserControl';
 
 const Navbar = () => {
-  const user = useSelector(
-    (state) => state.authorization.username,
-  );
-  const logged = useSelector(
-    (state) => state.authorization.token,
-  );
+  const user = useSelector((state) => state.authorization.username);
+  const logged = useSelector((state) => state.authorization.token);
 
   return (
-    <nav className="menu">
+    <nav className="sidebar">
       <h1 className="logo">Central Kitchen</h1>
       <div className="user">
         <p>WELCOME</p>

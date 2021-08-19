@@ -3,6 +3,7 @@ import {
   GET_WORKSHOPS,
   AUTH_USER,
   LOGOUT_USER,
+  GET_DETAILS,
 } from './types';
 
 const baseURL = 'http://localhost:3001';
@@ -12,6 +13,20 @@ const getWorkshops = () => async (dispatch) => {
     const res = await axios.get(`${baseURL}/workshops`);
     dispatch({
       type: GET_WORKSHOPS,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getDetails = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      `${baseURL}/workshops/${id}`,
+    );
+    dispatch({
+      type: GET_DETAILS,
       payload: res.data,
     });
   } catch (err) {
@@ -79,4 +94,10 @@ const logoutUser = () => {
   };
 };
 
-export { getWorkshops, signupUser, loginUser, logoutUser }; // eslint-disable-line
+export {
+  getWorkshops,
+  getDetails,
+  signupUser,
+  loginUser,
+  logoutUser,
+};

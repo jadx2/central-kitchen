@@ -1,0 +1,103 @@
+@import 'variables';
+
+.workshop-details-container {
+  position: relative;
+  display: flex;
+
+  .workshop-info {
+    padding: 2.5rem;
+    width: 530px;
+
+    .workshop-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: $dark-black;
+      margin-bottom: 2rem;
+    }
+
+    .workshop-image {
+      width: 400px;
+      margin: 0 auto 1.5rem auto;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .workshop-description {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .menu {
+      font-weight: 700;
+      font-size: 1.4;
+      color: $dark-black;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-item {
+      font-size: 1.3rem;
+      list-style: inside;
+    }
+  }
+
+  .divider {
+    height: 600px;
+    margin: auto;
+    border: 1px solid $soft-grey;
+  }
+
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem;
+
+    .form-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .dates {
+      border: 1px solid $grey;
+      background-color: $white;
+      height: 30px;
+      padding: 0 1rem;
+      outline-color: $green;
+      margin-bottom: 2rem;
+    }
+
+    .submit-btn {
+      border-radius: 50px;
+      width: 120px;
+      height: 40px;
+      font-weight: 700;
+      align-content: center;
+      margin: 0 auto;
+    }
+  }
+
+  .btn {
+    background-color: $green;
+    color: $white;
+    border: none;
+    padding: 1rem;
+    z-index: 10;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .back-btn {
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    border-radius: 0 30px 30px 0;
+    text-align: right;
+    width: 80px;
+    font-size: 3rem;
+    padding-right: 3rem;
+  }
+}

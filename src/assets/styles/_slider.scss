@@ -42,7 +42,7 @@
     .info-holder {
       position: absolute;
       bottom: 0;
-      padding: 1rem;
+      padding: 1.5rem;
       background-color: rgba(70, 70, 70, 0.8);
       color: $white;
       width: 100%;
@@ -64,8 +64,8 @@
     }
 
     &.active {
-      width: 500px;
-      height: 300px;
+      width: 600px;
+      height: 350px;
       opacity: 1;
       margin: 3rem;
     }

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { signupUser } from '../actions';
 
-const Signup = () => {
+const Signup = (props) => {
+  const { history } = props;
   const dispatch = useDispatch();
-  const history = useHistory();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,7 +44,7 @@ const Signup = () => {
     setEmail('');
     setPassword('');
     setPasswordConfirmation('');
-    history.push('/workshops');
+    history.goBack();
   };
 
   return (
@@ -102,6 +103,12 @@ const Signup = () => {
       </div>
     </div>
   );
+};
+
+Signup.propTypes = {
+  history: PropTypes.shape({
+    goBack: PropTypes.func,
+  }).isRequired,
 };
 
 export default Signup;

@@ -7,7 +7,7 @@ const UserControl = (props) => {
   const { logged } = props;
   const dispatch = useDispatch();
 
-  const handelLogout = () => {
+  const handleLogout = () => {
     dispatch(logoutUser());
   };
 
@@ -22,11 +22,7 @@ const UserControl = (props) => {
           >
             DASHBOARD
           </NavLink>
-          <button
-            type="button"
-            className="logout-btn"
-            onClick={handelLogout}
-          >
+          <button type="button" className="logout-btn" onClick={handleLogout}>
             Logout
           </button>
         </div>
@@ -37,7 +33,7 @@ const UserControl = (props) => {
         <NavLink
           className="nav-link"
           activeClassName="nav-link active"
-          to="signup"
+          to="/signup"
         >
           SIGNUP
         </NavLink>
