@@ -1,9 +1,14 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable operator-linebreak */
+/* eslint-disable camelcase */
+
 import axios from 'axios';
 import {
   GET_WORKSHOPS,
   AUTH_USER,
   LOGOUT_USER,
   GET_DETAILS,
+  CREATE_ATTENDANCE,
 } from './types';
 
 const baseURL = 'http://localhost:3001';
@@ -22,9 +27,7 @@ const getWorkshops = () => async (dispatch) => {
 
 const getDetails = (id) => async (dispatch) => {
   try {
-    const res = await axios.get(
-      `${baseURL}/workshops/${id}`,
-    );
+    const res = await axios.get(`${baseURL}/workshops/${id}`);
     dispatch({
       type: GET_DETAILS,
       payload: res.data,
@@ -42,20 +45,16 @@ const signupUser = (user) => async (dispatch) => {
       password: user.password,
       password_confirmation: user.password_confirmation,
     });
+    const { id, username } = res.data.user;
+
     dispatch({
       type: AUTH_USER,
-      payload: [res.data.username, res.data.token],
+      payload: [id, username, res.data.token],
     });
 
-    localStorage.setItem(
-      'username',
-      JSON.stringify(res.data.username),
-    );
-
-    localStorage.setItem(
-      'token',
-      JSON.stringify(res.data.token),
-    );
+    localStorage.setItem('id', JSON.stringify(id));
+    localStorage.setItem('username', username);
+    localStorage.setItem('token', res.data.token);
   } catch (err) {
     console.log(err);
   }
@@ -67,20 +66,15 @@ const loginUser = (user) => async (dispatch) => {
       email: user.email,
       password: user.password,
     });
+    const { id, username } = res.data.user;
     dispatch({
       type: AUTH_USER,
-      payload: [res.data.username, res.data.token],
+      payload: [id, username, res.data.token],
     });
 
-    localStorage.setItem(
-      'username',
-      JSON.stringify(res.data.username),
-    );
-
-    localStorage.setItem(
-      'token',
-      JSON.stringify(res.data.token),
-    );
+    localStorage.setItem('id', id);
+    localStorage.setItem('username', username);
+    localStorage.setItem('token', res.data.token);
   } catch (err) {
     console.log(err);
   }
@@ -89,9 +83,32 @@ const loginUser = (user) => async (dispatch) => {
 const logoutUser = () => {
   localStorage.removeItem('username');
   localStorage.removeItem('token');
+  localStorage.removeItem('id');
   return {
     type: LOGOUT_USER,
   };
+};
+
+const createAttendance = (data) => async (dispatch) => {
+  try {
+    const { attendee_id, attended_workshop_id, date, token } = data;
+    const headers = { Authorization: token };
+    const res = await axios.post(
+      `${baseURL}/attendances`,
+      {
+        attendee_id,
+        attended_workshop_id,
+        date,
+      },
+      { headers },
+    );
+    console.log(res);
+    dispatch({
+      type: CREATE_ATTENDANCE,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export {
@@ -100,4 +117,5 @@ export {
   signupUser,
   loginUser,
   logoutUser,
+  createAttendance,
 };

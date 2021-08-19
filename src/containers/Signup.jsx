@@ -10,8 +10,7 @@ const Signup = (props) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = // eslint-disable-line
-    useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState(''); // eslint-disable-line
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +43,7 @@ const Signup = (props) => {
     setEmail('');
     setPassword('');
     setPasswordConfirmation('');
-    history.goBack();
+    history.push('/workshops');
   };
 
   return (
@@ -107,7 +106,7 @@ const Signup = (props) => {
 
 Signup.propTypes = {
   history: PropTypes.shape({
-    goBack: PropTypes.func,
+    push: PropTypes.func,
   }).isRequired,
 };
 

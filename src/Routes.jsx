@@ -9,7 +9,7 @@ const DefaultRoutes = () => (
   <div className="container">
     <Navbar />
     <Route exact path="/workshops" component={Workshops} />
-    <Route exact path="/workshops/:id" component={WorkshopDetails} />
+    <Route exact path="/workshops/:workshopId" component={WorkshopDetails} />
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login} />
   </div>

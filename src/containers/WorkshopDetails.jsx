@@ -8,27 +8,42 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft } from '@fortawesome/free-solid-svg-icons';
-import { getDetails } from '../actions';
+import { createAttendance, getDetails } from '../actions';
 
 const WorkshopDetails = (props) => {
   const { history } = props;
-  const { id } = useParams();
+  const { workshopId } = useParams();
   const [date, setDate] = useState('');
   const dispatch = useDispatch();
   const workshop = useSelector((state) => state.details);
-  const { title, description, menu, dates, image } = workshop;
+  const userId = useSelector((state) => state.authorization.id);
+  const token = useSelector((state) => state.authorization.token);
+  const { id, title, description, menu, dates, image } = workshop;
 
   useEffect(() => {
-    dispatch(getDetails(id));
+    dispatch(getDetails(workshopId));
   }, []);
 
   const handleChange = (e) => {
     setDate(e.target.value);
   };
 
-  useEffect(() => {
-    console.log(menu);
-  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (token) {
+      dispatch(
+        createAttendance({
+          attendee_id: userId,
+          attended_workshop_id: id.toString(),
+          date,
+          token,
+        }),
+      );
+      console.log(userId, id, date, token);
+    } else {
+      history.push('/signup');
+    }
+  };
 
   const goBack = () => {
     history.goBack();
@@ -54,7 +69,7 @@ const WorkshopDetails = (props) => {
         </ul>
       </div>
       <div className="divider" />
-      <form className="booking-form">
+      <form onSubmit={handleSubmit} className="booking-form">
         <h2 className="form-title">BOOK NOW YOUR WORKSHOP!</h2>
         <select
           className="dates"
@@ -77,7 +92,7 @@ const WorkshopDetails = (props) => {
           BOOK NOW!
         </button>
       </form>
-      <button className=" btn back-btn" type="button" onClick={goBack}>
+      <button className="btn back-btn" type="button" onClick={goBack}>
         <FontAwesomeIcon icon={faCaretLeft} />
       </button>
     </div>
@@ -87,6 +102,7 @@ const WorkshopDetails = (props) => {
 WorkshopDetails.propTypes = {
   history: PropTypes.shape({
     goBack: PropTypes.func,
+    push: PropTypes.func,
   }).isRequired,
 };
 

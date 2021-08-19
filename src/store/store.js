@@ -5,8 +5,9 @@ import rootReducer from '../reducers/index';
 const initialState = {
   workshops: [],
   authorization: {
-    username: JSON.parse(localStorage.getItem('username')),
-    token: JSON.parse(localStorage.getItem('token')),
+    id: localStorage.getItem('id'),
+    username: localStorage.getItem('username'),
+    token: localStorage.getItem('token'),
   },
   details: {},
 };

@@ -31,7 +31,7 @@ const Login = (props) => {
     );
     setEmail('');
     setPassword('');
-    history.goBack();
+    history.push('/workshops');
   };
 
   return (
@@ -72,7 +72,7 @@ const Login = (props) => {
 
 Login.propTypes = {
   history: PropTypes.shape({
-    goBack: PropTypes.func,
+    push: PropTypes.func,
   }).isRequired,
 };
 
