@@ -25,7 +25,7 @@ const UserControl = (props) => {
             DASHBOARD
           </NavLink>
           <button type="button" className="logout-btn" onClick={handleLogout}>
-            Logout
+            LOGOUT
           </button>
         </div>
       );

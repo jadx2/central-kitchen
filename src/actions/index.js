@@ -1,5 +1,3 @@
-/* eslint-disable object-curly-newline */
-
 import axios from 'axios';
 import {
   GET_WORKSHOPS,
@@ -102,7 +100,12 @@ const logoutUser = () => {
 
 const createAttendance = (data) => async (dispatch) => {
   try {
-    const { userId, id, date, token } = data;
+    const {
+      userId,
+      id,
+      date,
+      token,
+    } = data;
     const headers = { Authorization: token };
     await axios.post(
       `${baseURL}/attendances`,
