@@ -10,7 +10,7 @@ import {
   GET_ERROR,
 } from './types';
 
-const baseURL = 'http://localhost:3001';
+const baseURL = 'https://jadx2-api-central-kitchen.herokuapp.com';
 
 const getWorkshops = () => async (dispatch) => {
   try {
