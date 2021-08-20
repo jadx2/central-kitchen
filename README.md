@@ -9,6 +9,10 @@
 
 [Central Kitchen Demo](https://jadx2-central-kitchen.herokuapp.com/)
 
+### Backend repo
+
+[Backend Repo](https://github.com/jadx2/central-kitchen-api)
+
 ### Built With
 
 This project was built using these technologies.
@@ -22,10 +26,6 @@ This project was built using these technologies.
 - Testing-Library
 - Redux-mock-store
 - Fontawesome
-
-### Backend repo
-
-[Backend Repo](https://github.com/jadx2/central-kitchen-api)
 
 ### Getting Started
 
