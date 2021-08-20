@@ -2,8 +2,8 @@
 
 > Welcome to Central Kitchen, your cooking learning experience. In this app you can book online classes to learn how to prepare the most amazing dishes from around the world. Every class is guided by a proffesional chef live! So there is now excuse to amaze the people you love with a great meal! (This app is best display in tablet, but you can check it out in your laptop or pc)
 
-![screenshot](./src/assets/images/screenshot1.jpg)
-![screenshot](./src/assets/images/screenshot2.jpg)
+![screenshot](./src/assets/images/screenshot1.png)
+![screenshot](./src/assets/images/screenshot2.png)
 
 ## Live Demo
 
