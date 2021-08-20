@@ -42,13 +42,13 @@ To get a local copy up and running follow these simple example steps.
 - Clone with SSH:
 
 ```
-git@github.com:jadx2/the-meal-stock.git
+git@github.com:jadx2/central-kitchen.git
 ```
 
 - Clone with HTTPS:
 
 ```
-https://github.com/jadx2/the-meal-stock.git
+https://github.com/jadx2/central-kitchen.git
 ```
 
 - Move to the temporary feature branch:
