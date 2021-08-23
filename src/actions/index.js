@@ -7,6 +7,7 @@ import {
   GET_ATTENDANCES,
   SET_ERROR,
   RESET_ERROR,
+  RESET_ATTENDANCES,
 } from './types';
 
 const baseURL = 'https://jadx2-api-central-kitchen.herokuapp.com';
@@ -103,7 +104,10 @@ const logoutUser = () => {
 const createAttendance = (data) => async (dispatch) => {
   try {
     const {
-      userId, id, date, token,
+      userId,
+      id,
+      date,
+      token,
     } = data;
     const headers = { Authorization: token };
     await axios.post(
@@ -139,6 +143,8 @@ const getAttendances = (token) => async (dispatch) => {
   }
 };
 
+const resetAttendances = () => ({ type: RESET_ATTENDANCES });
+
 const resetError = () => ({ type: RESET_ERROR });
 
 export {
@@ -149,5 +155,6 @@ export {
   logoutUser,
   createAttendance,
   getAttendances,
+  resetAttendances,
   resetError,
 };

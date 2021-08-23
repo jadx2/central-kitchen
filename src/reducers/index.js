@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import authorizationReducer from './authorizationReducer';
 import workshopsReducer from './workshopsReducer';
 import getDetailsReducer from './getDetailsReducer';
-import getAttendancesReducer from './getAttendancesReducer';
+import attendancesReducer from './attendancesReducer';
 import errorReducer from './errorReducer';
 import getMenuReducer from './getMenuReducer';
 import getDatesReducer from './getDatesReducer';
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   details: getDetailsReducer,
   menu: getMenuReducer,
   dates: getDatesReducer,
-  attendances: getAttendancesReducer,
+  attendances: attendancesReducer,
   error: errorReducer,
 });
 

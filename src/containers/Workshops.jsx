@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from '../components/slider';
-import { getWorkshops } from '../actions';
+import { getWorkshops, resetAttendances } from '../actions';
 
 const Workshops = () => {
   const dispatch = useDispatch();
   const workshops = useSelector((state) => state.workshops);
 
   useEffect(() => {
-    // dispatch(resetError());
     dispatch(getWorkshops());
+    dispatch(resetAttendances());
   }, []);
 
   return (
