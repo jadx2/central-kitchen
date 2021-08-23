@@ -12,23 +12,6 @@ const Signup = (props) => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState(''); // eslint-disable-line
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === 'username') {
-      setUsername(value);
-    }
-    if (name === 'email') {
-      setEmail(value);
-    }
-    if (name === 'password') {
-      setPassword(value);
-    }
-    if (name === 'password-confirmation') {
-      setPasswordConfirmation(value);
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
@@ -58,7 +41,7 @@ const Signup = (props) => {
             id="username"
             placeholder="Enter your username..."
             required
-            onChange={handleChange}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </label>
         <label htmlFor="email">
@@ -69,7 +52,7 @@ const Signup = (props) => {
             id="email"
             placeholder="Enter a valid email..."
             required
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </label>
         <label htmlFor="password">
@@ -80,7 +63,7 @@ const Signup = (props) => {
             id="password"
             placeholder="Enter a password..."
             required
-            onChange={handleChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </label>
         <label htmlFor="password-confirmation">
@@ -91,7 +74,7 @@ const Signup = (props) => {
             id="password-confirmation"
             placeholder="Re enter your password..."
             required
-            onChange={handleChange}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
         </label>
         <button type="submit">SIGNUP</button>

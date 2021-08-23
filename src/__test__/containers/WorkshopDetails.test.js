@@ -19,8 +19,8 @@ describe('It renders the workshop details', () => {
       id: 1,
       title: 'Sashimi',
       description: 'A sashimi class',
-      menu: ['dish1', 'dish2', 'dish3'],
     },
+    menu: ['dish1', 'dish2', 'dish3'],
   };
   const store = mockstore(initialState);
   const history = {};

@@ -3,14 +3,18 @@ import authorizationReducer from './authorizationReducer';
 import workshopsReducer from './workshopsReducer';
 import getDetailsReducer from './getDetailsReducer';
 import getAttendancesReducer from './getAttendancesReducer';
-import getErrorReducer from './getErrorReducer';
+import errorReducer from './errorReducer';
+import getMenuReducer from './getMenuReducer';
+import getDatesReducer from './getDatesReducer';
 
 const rootReducer = combineReducers({
   workshops: workshopsReducer,
   authorization: authorizationReducer,
   details: getDetailsReducer,
+  menu: getMenuReducer,
+  dates: getDatesReducer,
   attendances: getAttendancesReducer,
-  error: getErrorReducer,
+  error: errorReducer,
 });
 
 export default rootReducer;

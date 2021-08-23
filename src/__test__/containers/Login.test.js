@@ -8,7 +8,7 @@ import Login from '../../containers/Login';
 
 describe('It renders login page', () => {
   const mockstore = configureStore([thunk]);
-  const initialState = {};
+  const initialState = { authorization: { token: '123456' }, error: [] };
   const store = mockstore(initialState);
 
   const history = {};

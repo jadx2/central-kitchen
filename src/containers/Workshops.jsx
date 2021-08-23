@@ -8,6 +8,7 @@ const Workshops = () => {
   const workshops = useSelector((state) => state.workshops);
 
   useEffect(() => {
+    // dispatch(resetError());
     dispatch(getWorkshops());
   }, []);
 

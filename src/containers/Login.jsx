@@ -1,25 +1,14 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { loginUser } from '../actions';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { loginUser, resetError } from '../actions';
 
-const Login = (props) => {
-  const { history } = props;
+const Login = () => {
   const dispatch = useDispatch();
+  const error = useSelector((state) => state.error);
+  const token = useSelector((state) => state.authorization.token);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === 'email') {
-      setEmail(value);
-    }
-    if (name === 'password') {
-      setPassword(value);
-    }
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,10 +18,9 @@ const Login = (props) => {
         password,
       }),
     );
-    setEmail('');
-    setPassword('');
-    history.push('/workshops');
   };
+
+  useEffect(() => () => dispatch(resetError()), []);
 
   return (
     <div className="form-container">
@@ -46,7 +34,7 @@ const Login = (props) => {
             id="email"
             placeholder="Enter a valid email..."
             required
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </label>
         <label htmlFor="password">
@@ -57,7 +45,7 @@ const Login = (props) => {
             id="password"
             placeholder="Enter a password..."
             required
-            onChange={handleChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </label>
         <button type="submit">LOGIN</button>
@@ -66,14 +54,10 @@ const Login = (props) => {
         <p>Don&apos;t have an account?</p>
         <Link to="/signup">Signup here</Link>
       </div>
+      {error.length > 0 && <p>Invalid Credentials</p>}
+      {token && <Redirect to="/workshops" />}
     </div>
   );
-};
-
-Login.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
 };
 
 export default Login;

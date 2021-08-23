@@ -13,14 +13,14 @@ const WorkshopDetails = (props) => {
   const [date, setDate] = useState('');
   const dispatch = useDispatch();
   const workshop = useSelector((state) => state.details);
+  const menu = useSelector((state) => state.menu);
+  const dates = useSelector((state) => state.dates);
   const userId = useSelector((state) => state.authorization.id);
   const token = useSelector((state) => state.authorization.token);
   const {
     id,
     title,
     description,
-    menu,
-    dates,
     image,
   } = workshop;
 

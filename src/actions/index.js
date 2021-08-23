@@ -5,10 +5,12 @@ import {
   LOGOUT_USER,
   GET_DETAILS,
   GET_ATTENDANCES,
-  GET_ERROR,
+  SET_ERROR,
+  RESET_ERROR,
 } from './types';
 
 const baseURL = 'https://jadx2-api-central-kitchen.herokuapp.com';
+// const baseURL = 'http://localhost:3001';
 
 const getWorkshops = () => async (dispatch) => {
   try {
@@ -19,7 +21,7 @@ const getWorkshops = () => async (dispatch) => {
     });
   } catch (err) {
     dispatch({
-      type: GET_ERROR,
+      type: SET_ERROR,
       payload: err,
     });
   }
@@ -34,7 +36,7 @@ const getDetails = (id) => async (dispatch) => {
     });
   } catch (err) {
     dispatch({
-      type: GET_ERROR,
+      type: SET_ERROR,
       payload: err,
     });
   }
@@ -42,7 +44,7 @@ const getDetails = (id) => async (dispatch) => {
 
 const signupUser = (user) => async (dispatch) => {
   try {
-    const res = await axios.post(`${baseURL}/signup`, {
+    const res = await axios.post(`${baseURL}/users`, {
       username: user.username,
       email: user.email,
       password: user.password,
@@ -60,7 +62,7 @@ const signupUser = (user) => async (dispatch) => {
     localStorage.setItem('token', res.data.token);
   } catch (err) {
     dispatch({
-      type: GET_ERROR,
+      type: SET_ERROR,
       payload: err,
     });
   }
@@ -68,7 +70,7 @@ const signupUser = (user) => async (dispatch) => {
 
 const loginUser = (user) => async (dispatch) => {
   try {
-    const res = await axios.post(`${baseURL}/login`, {
+    const res = await axios.post(`${baseURL}/authentication`, {
       email: user.email,
       password: user.password,
     });
@@ -83,7 +85,7 @@ const loginUser = (user) => async (dispatch) => {
     localStorage.setItem('token', res.data.token);
   } catch (err) {
     dispatch({
-      type: GET_ERROR,
+      type: SET_ERROR,
       payload: err,
     });
   }
@@ -101,10 +103,7 @@ const logoutUser = () => {
 const createAttendance = (data) => async (dispatch) => {
   try {
     const {
-      userId,
-      id,
-      date,
-      token,
+      userId, id, date, token,
     } = data;
     const headers = { Authorization: token };
     await axios.post(
@@ -118,7 +117,7 @@ const createAttendance = (data) => async (dispatch) => {
     );
   } catch (err) {
     dispatch({
-      type: GET_ERROR,
+      type: SET_ERROR,
       payload: err,
     });
   }
@@ -134,11 +133,13 @@ const getAttendances = (token) => async (dispatch) => {
     });
   } catch (err) {
     dispatch({
-      type: GET_ERROR,
+      type: SET_ERROR,
       payload: err,
     });
   }
 };
+
+const resetError = () => ({ type: RESET_ERROR });
 
 export {
   getWorkshops,
@@ -148,4 +149,5 @@ export {
   logoutUser,
   createAttendance,
   getAttendances,
+  resetError,
 };
