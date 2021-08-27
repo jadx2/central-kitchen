@@ -1,5 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import 'fonts';
+@import 'global';
+@import 'welcomePage';
+@import 'navbar';
+@import 'workshops';
+@import 'workshopDetails';
+@import 'signup';
+@import 'slider';
+@import 'dashboard';
+@import 'responsive';

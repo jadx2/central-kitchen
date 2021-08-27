@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# Central Kitchen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Welcome to Central Kitchen, your cooking learning experience. In this app, you can book online classes to learn how to prepare the most amazing dishes from around the world. Every class is guided by a professional chef live! So there is no excuse to amaze the people you love with a great meal! (This app is best to display on a tablet, but you can check it out on your laptop or pc)
 
-## Available Scripts
+![screenshot](./src/assets/images/screenshot1.png)
+![screenshot](./src/assets/images/screenshot2.png)
 
-In the project directory, you can run:
+## Live Demo
 
-### `yarn start`
+[Central Kitchen Demo](https://jadx2-central-kitchen.herokuapp.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Backend repo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[Backend Repo](https://github.com/jadx2/central-kitchen-api)
 
-### `yarn test`
+### Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project was built using these technologies.
 
-### `yarn build`
+- ReactJS
+- Prop-Types
+- Redux
+- React-Redux
+- HTML / SASS
+- NodeJS
+- Testing-Library
+- Redux-mock-store
+- Fontawesome
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get a local copy up and running follow these simple example steps.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `yarn eject`
+- A web browser
+- Node.js
+- A terminal
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Clone
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Clone with SSH:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+git@github.com:jadx2/central-kitchen.git
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Clone with HTTPS:
 
-## Learn More
+```
+https://github.com/jadx2/central-kitchen.git
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Move to the temporary feature branch:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+git checkout central-kitchen
+```
 
-### Code Splitting
+### Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Install dependencies with yarn:
 
-### Analyzing the Bundle Size
+```
+  yarn
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Run server:
 
-### Making a Progressive Web App
+```
+  yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- If it doesn't open automatically paste the following in your browser:
 
-### Advanced Configuration
+```
+  http://localhost:3000/
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Testing
 
-### Deployment
+- To test the app run the command for test in the root directory of the project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+yarn run test
+```
 
-### `yarn build` fails to minify
+## Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+👤 **Jaim Delmar**
+
+- Github: [@jadx2](https://github.com/jadx2/)
+- Twitter: [@thecatcodes](https://twitter.com/thecatcodes)
+- LinkedIn: [@Jaim Delmar](https://www.linkedin.com/in/jaimdelmar/)
+
+## :handshake: Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/jadx2/central-kitchen/issues).
+
+## Show your support
+
+Give a :star: if you like this project!
+
+## Acknowledgement
+
+Thanks and much appreciation to [Murat Korkmaz on Behance](https://www.behance.net/muratk) for this amazing design.
+
+## 📝 License
+
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
